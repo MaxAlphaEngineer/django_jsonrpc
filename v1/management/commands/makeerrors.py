@@ -73,29 +73,6 @@ class Command(BaseCommand):
             "en": "Authorization token expired or not valid"
         },
 
-        # TERMINAL
-
-        {
-            "code": -32301,
-            "origin": "terminal",
-            "uz": "Merchant yoki terminal mavjud!",
-            "ru": "Мерчант или терминал существует!",
-            "en": "Merchant or terminal exists!"
-        },
-        {
-            "code": -32302,
-            "origin": "terminal",
-            "uz": "Merchant yoki terminal mavjud emas!",
-            "ru": "Мерчант или терминал не существует!",
-            "en": "Merchant or terminal not exists!"
-        },
-        {
-            "code": -32303,
-            "origin": "terminal",
-            "uz": "Merchant va terminal faol emas!",
-            "ru": "Мерчант и терминал не активны!",
-            "en": "Merchant and terminal inactive!"
-        },
 
         # CHEQUE
         {

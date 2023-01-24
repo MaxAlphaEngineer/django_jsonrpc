@@ -17,9 +17,9 @@ from v1.models.partners import Partner
 # Register your models here.
 @admin.register(Partner)
 class PartnerAdmin(UserAdmin):
-    list_display = 'id', 'username', 'identity'
+    list_display = 'id', 'username', 'is_active', 'is_superuser'
     list_display_links = 'id', 'username'
-    list_editable = ['identity']
+    list_editable = []
     fieldsets = (
         (None, {"fields": ("username", "password")}),
         # (_("Personal info"), {"fields": ("first_name", "last_name", "email")}),
