@@ -16,6 +16,7 @@ from jsonrpcserver import method, Result, Success, dispatch
 from api import settings
 from v1.models.errors import Service
 from v1.models.partners import AccessToken, Partner
+from v1.services import service
 from v1.utils.handlers import response_handler
 from v1.utils.helpers import error_message
 from v1.utils.validator import validator
@@ -54,9 +55,8 @@ CARD = ""
 
 
 @method(name="service.info")
-def card_info(context, number: str) -> Result:
-    # response = service.info(context['user'], number)
-    response = True
+def service_info(context) -> Result:
+    response = service.info(context['method_name'])
     return response_handler(response)
 
 
@@ -89,7 +89,8 @@ def jsonrpc(request):
         return JsonResponse(validate, safe=False)
 
     context = {
-        'request_id': request_id
+        'request_id': request_id,
+        'method_name': method_name
     }
 
     # Authorization

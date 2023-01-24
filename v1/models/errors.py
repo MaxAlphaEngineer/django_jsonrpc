@@ -32,3 +32,13 @@ class Service(models.Model):
 
     class Meta:
         verbose_name_plural = "7. Services"
+
+    def result(self):
+        return {
+            "result": {
+                "method": self.method,
+                "is_test": self.is_test,
+                "is_active": self.is_active
+            }
+
+        }
