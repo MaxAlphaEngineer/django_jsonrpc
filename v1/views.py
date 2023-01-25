@@ -15,7 +15,7 @@ from jsonrpcserver import method, Result, Success, dispatch
 
 from api import settings
 from v1.models.errors import Service
-from v1.models.partners import AccessToken, Partner
+from v1.models.partners import AccessToken, User
 from v1.services import service
 from v1.utils.handlers import response_handler
 from v1.utils.helpers import error_message
@@ -29,9 +29,9 @@ AUTHORIZATION = ""
 
 @method
 def login(context, username: str, password: str) -> any:
-    partners = Partner.objects.filter(username=username)
-    if partners.exists():
-        partner = partners.first()
+    user = User.objects.filter(username=username)
+    if user.exists():
+        partner = user.first()
         if partner.check_password(password):
             tokens = AccessToken.objects.filter(partner=partner)
             if tokens.exists():

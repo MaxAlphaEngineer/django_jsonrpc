@@ -11,11 +11,11 @@ from django.utils.translation import gettext_lazy as _
 
 from v1.models import Error
 from v1.models.errors import Service
-from v1.models.partners import Partner
+from v1.models.partners import User
 
 
 # Register your models here.
-@admin.register(Partner)
+@admin.register(User)
 class PartnerAdmin(UserAdmin):
     list_display = 'id', 'username', 'is_active', 'is_superuser'
     list_display_links = 'id', 'username'

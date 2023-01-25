@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 from v1.models.manager import CustomUserManager
 
 
-class Partner(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(_('Username'), unique=True, max_length=50)
 
     is_test = models.BooleanField(default=False)
@@ -28,14 +28,14 @@ class Partner(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     class Meta:
-        verbose_name_plural = "1. Partners"
+        verbose_name_plural = "1. Users"
 
     objects = CustomUserManager()
     pass
 
 
 class AccessToken(models.Model):
-    partner = models.ForeignKey(Partner, on_delete=models.CASCADE, related_name="access_token")
+    User = models.ForeignKey(User, on_delete=models.CASCADE, related_name="access_token")
     key = models.CharField(max_length=128)
 
     def generate(self):
@@ -48,5 +48,5 @@ class Service:
     pass
 
 
-class PartnerServicePermissions:
+class UserServicePermissions:
     pass

@@ -1,2 +1,2 @@
 from .errors import Error
-from .partners import Partner
+from .partners import User

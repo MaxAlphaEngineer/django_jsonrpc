@@ -33,7 +33,7 @@ NO_LOGIN_METHODS = ['login']
 APP_NAME = "APP_NAME"
 
 # Application definition
-AUTH_USER_MODEL = 'v1.Partner'
+AUTH_USER_MODEL = 'v1.User'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
